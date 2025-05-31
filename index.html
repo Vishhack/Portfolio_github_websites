@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <div class="home-text">
+        <h1>Hi, I'm Your Name</h1>
+        <p>Welcome to my modern portfolio! I am a passionate developer with a love for stylish web design and creative coding.</p>
+      </div>
+      <div class="home-pic">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture" />
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item left" id="edu1">
+        <a href="#edu1" class="timeline-link" title="Go to BSc">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>
+        </a>
+        <div class="timeline-content">
+          <h3>Bachelor of Science in Computer Science</h3>
+          <span class="timeline-date">2018 - 2022</span>
+          <p>ABC University, City</p>
+        </div>
+      </div>
+      <div class="timeline-connector"></div>
+      <div class="timeline-item right" id="edu2">
+        <a href="#edu2" class="timeline-link" title="Go to Intermediate">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>
+        </a>
+        <div class="timeline-content">
+          <h3>Intermediate in Pre-Engineering</h3>
+          <span class="timeline-date">2016 - 2018</span>
+          <p>XYZ College, City</p>
+        </div>
+      </div>
+      <div class="timeline-connector"></div>
+      <div class="timeline-item left" id="edu3">
+        <a href="#edu3" class="timeline-link" title="Go to Matriculation">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg>
+        </a>
+        <div class="timeline-content">
+          <h3>Matriculation in Science</h3>
+          <span class="timeline-date">2014 - 2016</span>
+          <p>High School, City</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>UI/UX Design</li>
+      <li>Responsive Design</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li class="project-card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Modern Landing Page" />
+        <h3>Modern Landing Page</h3>
+        <p>A beautiful, responsive landing page using the latest CSS techniques.</p>
+        <a class="show-more" href="#" target="_blank">Show More</a>
+      </li>
+      <li class="project-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Portfolio Website" />
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio to showcase my work and skills.</p>
+        <a class="show-more" href="#" target="_blank">Show More</a>
+      </li>
+      <li class="project-card">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Interactive Form" />
+        <h3>Interactive Form</h3>
+        <p>A stylish contact form with validation and animations.</p>
+        <a class="show-more" href="#" target="_blank">Show More</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    // Glow effect on scroll for education timeline
+    function handleGlowOnScroll() {
+      const items = document.querySelectorAll('.timeline-item');
+      const windowHeight = window.innerHeight;
+      items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < windowHeight * 0.6 && rect.bottom > windowHeight * 0.2) {
+          item.classList.add('glow');
+          // Highlight the timeline link as active
+          const link = item.querySelector('.timeline-link');
+          if (link) link.classList.add('active');
+        } else {
+          item.classList.remove('glow');
+          const link = item.querySelector('.timeline-link');
+          if (link) link.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleGlowOnScroll);
+    window.addEventListener('resize', handleGlowOnScroll);
+    document.addEventListener('DOMContentLoaded', handleGlowOnScroll);
+  </script>
+</body>
+</html>
