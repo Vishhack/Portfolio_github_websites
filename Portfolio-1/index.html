@@ -105,7 +105,7 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzzgpown" method="POST">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
@@ -116,11 +116,18 @@
   <script>
     document.getElementById("contactForm").addEventListener("submit", async function(e) {
       e.preventDefault();
-      const formData = new FormData(this);
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
       const response = await fetch(this.action, {
         method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
       });
       if (response.ok) {
         alert("Message sent!");
